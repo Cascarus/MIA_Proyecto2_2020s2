@@ -1,0 +1,26 @@
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Recuperar Contraseña</h2>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h4 class="row-form">Escribe la dirección de correo electrónico asociado a tu cuenta</h4>
+                </div>
+                <form method="POST">
+                    <div class="form-row">
+                        <div class="name">Dirección de correo electrónico</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" [(ngModel)]="temp.Correo" name = "Correo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="resetPassword()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

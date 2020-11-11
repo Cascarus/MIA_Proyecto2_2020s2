@@ -1,0 +1,42 @@
+<div class="col-md-4" *ngFor="let product of products">
+    <div class="card text-center">
+        <div class="card-headee bg-dark  text-white d-flex justify-content-between align-items-center">
+            <h6>{{product.PRODUCTO}}</h6>
+        </div>
+        <!--IMAGEN AQUI-->
+        <img src="http://localhost:3000/{{product.FOTO}}" class="card-img-top">
+        <div class="card-body">
+            <p> Q.{{product.PRECIO}} </p>
+                <!--<div class="row">
+                    <p class="badge badge-pill badge-info " *ngFor="let pa of product.PALABRAS " [value]="pa">{{pa}}</p>  
+                </div>-->
+            <p  > Cat: {{product.PRODUCTO}} </p>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" (click)="setProdId(product.COD_PRODUCTO, product.PRECIO)">Add To Card </button>
+            <button type="button" class="btn btn-outline-success" (click)="detalleProd(product.COD_PRODUCTO)" >Detelle</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-white" id="exampleModalLongTitle" >Ingrese la cantidad a comprar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="email" class="form-control form-control-user"  type="text" aria-describedby="emailHelp" [(ngModel)]="tempCar.cant" [ngModelOptions]="{standalone: true}" placeholder="Cantidad">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-success"  (click)='addCart()'>Agregar</button>
+        </div>
+      </div>
+    </div>
+</div>
+

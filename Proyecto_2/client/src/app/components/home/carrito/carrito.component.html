@@ -1,0 +1,20 @@
+<div class="div">
+
+    <table class="table table-hover">
+        <thead>
+            <tr><td><h4>Cantidad</h4></td><td><h4>Descripcion</h4></td><td><h4>Precio</h4></td><td><h4>Sub Total</h4></td><td></td></tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let prod of detalle"> 
+                <td>{{prod.CANTIDAD}}</td><td>{{prod.PRODUCTO}}</td><td>Q.{{prod.PRECIO}}</td><td>Q.{{prod.SUB_TOTAL}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteOneDet(prod.COD_CARRITO, prod.COD_PRODUCTO)">X</button></td>   
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td><button type="button" (click)="regresar()">REGRESAR</button></td><td></td><td><h4>TOTAL</h4></td><td>Q.{{Total}}</td></tr>
+        </tfoot>
+  </table>
+  <button type="button" class="btn btn-success" (click)="startBuy()">Comprar</button>
+  <button type="button" class="btn btn-danger" (click)="deleteAllDet()">Eliminar carrito</button>
+  
+</div>

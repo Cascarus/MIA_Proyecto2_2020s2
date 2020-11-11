@@ -1,0 +1,83 @@
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Registrar Usuario</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <div class="name">Nombre</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" [(ngModel)]="user.Nombre" name = "Nombre">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Apellido</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="Apellido"  [(ngModel)]="user.Apellido">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Pais</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <select class="form-control" id="categoria" name="categoria" [(ngModel)]="pais">
+                                    <option *ngFor="let pa of paises" [value]= pa.COD_PAIS >{{pa.PAIS}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Fecha de nacimiento</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="date" name="Fecha" [(ngModel)]="user.Fecha">
+                                
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="form-row">
+                        <div class="name">Email</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="email" name="correo"  placeholder="example@email.com" [(ngModel)]="user.Correo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Contraseña</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="password" name="Contrasena" [(ngModel)]="user.Contrasena"  placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Confirmar Contraseña</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="password" placeholder="Password" name="contrasena2" [(ngModel)]="pass">
+                            </div>
+                        </div>
+                    </div>                 
+                    <div class="form-row">
+                        <div class="name">Subir imagen</div>
+                        <div class="value">
+                            <div class="input-group js-input-file">
+                                <input class="input-file" type="file" name="file_cv" id="file" (change)="onPhotoSelected($event)">
+                                <label class="label--file" for="file">Choose file</label>
+                                <span class="input-file__info" id="NameFIle">No file chosen</span>
+                            </div>
+                            <div class="label--desc">Max file size 50 MB</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="validateData()" >Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+

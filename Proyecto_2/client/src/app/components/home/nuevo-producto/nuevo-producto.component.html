@@ -1,0 +1,55 @@
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Nuevo Producto</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <div class="name">Producto</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" [(ngModel)]="prod.Producto" name = "Nombre">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Descripcion</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="Apellido"  [(ngModel)]="prod.Descripcion" maxlength = "160">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Categoria</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <select class="form-control" id="cat" name="cat" [(ngModel)]="tempCat.Cod_Categoria" [ngModelOptions]="{standalone: true}">
+                                    <option *ngFor="let cat of categorias" [value]= cat.COD_CATEGORIA>{{cat.CATEGORIA}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Precio Q.</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="precio"  [(ngModel)]="tempPrecio">
+                        </div>
+                    </div>             
+                    <div class="form-row">
+                        <div class="name">Subir imagen</div>
+                        <div class="value">
+                            <div class="input-group js-input-file">
+                                <input class="input-file" type="file" name="file_cv" id="file" (change)="onPhotoSelected($event)">
+                                <label class="label--file" for="file">Choose file</label>
+                                <span class="input-file__info" id="NameFIle">No file chosen</span>
+                            </div>
+                            <div class="label--desc">Max file size 50 MB</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="validateData()" >Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
